@@ -21,7 +21,7 @@ section#panel {
 
 section#panel ul {
 	overflow: hidden;
-	margin: 2rem 0;
+	margin: 2rem 0 0 0;
 	float: left;
 	list-style: none;
 	font-size: 1.1rem;

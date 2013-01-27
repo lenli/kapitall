@@ -221,19 +221,23 @@ function UpdateButtons() {
   for (var i = 0; i < aStockList.length; i++ ) {
     (function(stock_symbol) {
       if (EnoughCashToBuy(stock_symbol,1)) {
-        $("#"+stock_symbol+" .buy").fadeIn();
+        $("#"+stock_symbol+" li.buy a").css('background-color','#128a8d');
+        $("#"+stock_symbol+" li.buy a").disabled = false;
       }
 
       if (!EnoughCashToBuy(stock_symbol,1)) {
-        $("#"+stock_symbol+" .buy").hide();
+        $("#"+stock_symbol+" li.buy a").css('background-color','#e2e2e2');
+        $("#"+stock_symbol+" li.buy a").disabled = true;
       }
 
       if (EnoughSharesToSell(stock_symbol,1)) {
-        $("#"+stock_symbol+" .sell").fadeIn();        
+        $("#"+stock_symbol+" li.sell a").css('background-color','#128a8d');
+        $("#"+stock_symbol+" li.buy a").disabled = false;
       }
 
       if (!EnoughSharesToSell(stock_symbol,1)) {
-        $("#"+stock_symbol+" .sell").hide();        
+        $("#"+stock_symbol+" li.sell a").css('background-color','#e2e2e2');
+        $("#"+stock_symbol+" li.buy a").disabled = true;
       }      
     })(aStockList[i]);
   }
