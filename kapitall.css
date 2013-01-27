@@ -1,0 +1,55 @@
+article {
+	max-width: 1000px;
+	margin: 2rem auto;
+}
+
+section#panel-header h1 {
+	text-align: center;
+	margin: 2rem 0 0 0;
+	font-size: 2.5rem;
+}
+
+section#panel-header h2 {
+	text-align: center;
+	margin: 0;
+	font-size: 1.8rem;
+}
+
+section#panel {
+	overflow: hidden;
+}
+
+section#panel ul {
+	overflow: hidden;
+	margin: 2rem 0;
+	float: left;
+	list-style: none;
+	font-size: 1.1rem;
+	width: 140px;
+}
+
+section#panel li {
+	overflow: hidden;
+	text-align: center;
+}
+
+section#panel li.name {
+	font-weight: bold;
+}
+
+section#panel li.buy {
+	margin-top: 1rem;
+}
+
+section#panel ul li a {
+	margin: 0.2rem 0;
+	display: inline-block;
+	text-align: center;
+	padding: 0.3rem;
+	background-color: #128a8d;
+	color: #FFF;
+	text-decoration: none;
+	line-height: 1;
+	width: 100%;
+}
+
