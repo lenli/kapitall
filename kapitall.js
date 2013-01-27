@@ -62,20 +62,24 @@ $(function() {
   for (var i = 0; i < aStockList.length; i++ ) {
     (function(stock_symbol) {
 
+      // If user clicks "Buy" button
       $("#"+stock_symbol+" .buy").click(function(){
         if (EnoughCashToBuy(stock_symbol,1)) {
           UpdatePortfolioShares(stock_symbol,1);
           UpdatePortfolioCash(stock_symbol,-1);
           UpdatePortfolioValue();
-        }       
+        }
+        UpdateButtons();
       });
 
+      // If user clicks "Sell" button
       $("#"+stock_symbol+" .sell").click(function(){
         if (EnoughSharesToSell(stock_symbol,1)) {
           UpdatePortfolioShares(stock_symbol,-1);
           UpdatePortfolioCash(stock_symbol,1);
           UpdatePortfolioValue();
-        }       
+        }
+        UpdateButtons();
       });
 
     })(aStockList[i]);
@@ -108,6 +112,7 @@ function Initialize() {
   }
   UpdatePortfolioValue();
   ShowPortfolioCash();
+  UpdateButtons();
 }
 
 // Return true if there is enough cash to buy shares of stock
@@ -210,4 +215,26 @@ function UpdatePortfolioValue() {
   portfolio_total = PortfolioValue().toFixed(2);
 
   $("#panel-header .portfolio-value").html("Portfolio Value: "+portfolio_total);
+}
+
+function UpdateButtons() {
+  for (var i = 0; i < aStockList.length; i++ ) {
+    (function(stock_symbol) {
+      if (EnoughCashToBuy(stock_symbol,1)) {
+        $("#"+stock_symbol+" .buy").fadeIn();
+      }
+
+      if (!EnoughCashToBuy(stock_symbol,1)) {
+        $("#"+stock_symbol+" .buy").hide();
+      }
+
+      if (EnoughSharesToSell(stock_symbol,1)) {
+        $("#"+stock_symbol+" .sell").fadeIn();        
+      }
+
+      if (!EnoughSharesToSell(stock_symbol,1)) {
+        $("#"+stock_symbol+" .sell").hide();        
+      }      
+    })(aStockList[i]);
+  }
 }

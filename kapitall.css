@@ -26,6 +26,7 @@ section#panel ul {
 	list-style: none;
 	font-size: 1.1rem;
 	width: 140px;
+	height: 180px;
 }
 
 section#panel li {
@@ -37,7 +38,7 @@ section#panel li.name {
 	font-weight: bold;
 }
 
-section#panel li.buy {
+section#panel div.buttons {
 	margin-top: 1rem;
 }
 
